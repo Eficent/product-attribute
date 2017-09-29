@@ -63,10 +63,10 @@
             </field>
         </record>
 
-        <record model="ir.ui.view" id="product_template_extended_form_view">
+        <record model="ir.ui.view" id="view_product_supplier_inherit">
             <field name="name">product.template.extended.form</field>
             <field name="model">product.template</field>
-            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="inherit_id" ref="purchase.view_product_supplier_inherit"/>
             <field name="arch" type="xml">
                 <field name="seller_ids" position="attributes">
                     <attribute name="context">{'default_search_type':'supplier','default_type':'supplier','default_product_tmpl_id':id}</attribute>
@@ -78,6 +78,14 @@
                            context="{'default_search_type':'supplier','default_type':'supplier','default_product_tmpl_id':id}"
                            domain="[('type','=','supplier')]" />
                 </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="product_template_extended_form_view">
+            <field name="name">product.template.extended.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
                 <div name="pricelist_item" position="after">
                     <separator string="Customers" />
                     <field name="customer_ids"
@@ -148,7 +156,7 @@
             <field name="sequence" eval="5" />
         </record>
 
-        <menuitem id="product_supplierinfo_sale_menu" parent="base.menu_product"
+        <menuitem id="product_supplierinfo_sale_menu" parent="sale.menu_product"
                   action="product_supplierinfo_action" />
 
     </data>
