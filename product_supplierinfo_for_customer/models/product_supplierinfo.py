@@ -2,7 +2,7 @@
 ##############################################################################
 # For copyright and license notices, see __openerp__.py file in root directory
 ##############################################################################
-from odoo import models, fields, api
+from odoo import api, fields, models
 
 
 class ProductSupplierinfo(models.Model):
@@ -22,16 +22,13 @@ class ProductSupplierinfo(models.Model):
             return {'domain': {'name': [('customer', '=', True)]}}
         return {'domain': {'name': []}}
 
-    def search(self, cr, uid, args, offset=0, limit=None, order=None,
-               context=None, count=False):
+    @api.model
+    def search(self, args, offset=0, limit=None, order=None, count=False):
         """Add search argument for field type if the context says so. This
         should be in old API because context argument is not the last one.
         """
-        if context is None:
-            context = {}
         if not any(arg[0] == 'type' for arg in args):
             args += [('type', '=',
-                      context.get('supplierinfo_type', 'supplier'))]
+                      self.env.context.get('supplierinfo_type', 'supplier'))]
         return super(ProductSupplierinfo, self).search(
-            cr, uid, args, offset=offset, limit=limit, order=order,
-            context=context, count=count)
+            args, offset=offset, limit=limit, order=order, count=count)
