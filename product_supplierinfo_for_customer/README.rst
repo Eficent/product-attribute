@@ -28,19 +28,12 @@ suppliers.
    :alt: Try me on Runbot
    :target: https://runbot.odoo-community.org/runbot/188/10.0
 
-
-The product code / product name specified for the customer can be reflected
-on the sale orders using module `product_supplierinfo_for_customer_sale
-<https://github.com/OCA/product-attribute/tree/8.0/product_supplierinfo_for_customer_sale>`_
-
 Known issues / Roadmap
 ======================
 
 * Product prices through this method are only guaranteed on the standard sale
   order workflow. Other custom flows maybe don't reflect the price.
-* The minimum quantity will not also be applied on sale orders.
-* Computed fields in product.supplierinfo object won't properly work for
-  customer type
+* The minimum quantity will neither apply on sale orders.
 
 Credits
 =======
