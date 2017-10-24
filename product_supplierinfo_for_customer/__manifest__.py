@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Copyright 2015 OdooMRP team
+# Copyright 2015 AvanzOSC
+# Copyright 2015 Tecnativa
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 {
     "name": "Use product supplier info for customers too",
@@ -6,7 +9,6 @@
     "author": "OdooMRP team, "
               "AvanzOSC, "
               "Tecnativa, "
-              "Eficent, "
               "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/product-attribute",
     "category": "Sales Management",

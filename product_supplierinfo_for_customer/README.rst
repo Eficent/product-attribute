@@ -10,13 +10,6 @@ This modules allows to use supplier info structure, available in
 *Inventory* tab of the product form, also for defining customer information,
 allowing to define prices per customer and product.
 
-Configuration
-=============
-
-For these prices to be used in sale prices calculations, you will have
-to create a pricelist with a rule with option "Based on" with the value
-"Supplier prices on the product form" (although the text is not clear enough).
-
 Usage
 =====
 
