@@ -17,6 +17,9 @@ There's a new section on *Sales* tab of the product form called "Customers",
 where you can define records for customers with the same structure of the
 suppliers.
 
+There's a new option on pricelist items that allows to get the prices from the
+ supplierinfo at the product form.
+
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
    :target: https://runbot.odoo-community.org/runbot/188/10.0
