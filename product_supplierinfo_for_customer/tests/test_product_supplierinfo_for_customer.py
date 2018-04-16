@@ -96,7 +96,7 @@ class TestProductSupplierinfoForCustomer(common.TransactionCase):
         self.assertEqual(price, 100.0,
                          "Error: Price not found for product and customer")
         res = self.product.with_context(
-                    partner_id=self.customer.id).price_compute(
+            partner_id=self.customer.id).price_compute(
             'partner', self.product.uom_id, self.company.currency_id,
             self.company)
         self.assertEqual(
