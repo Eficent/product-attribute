@@ -27,23 +27,24 @@ class ProductProduct(models.Model):
             self, price_type, uom=False, currency=False, company=False):
         for product in self:
             if price_type == 'partner':
+                partner = self.env.context.get('partner_id', False)
+                price = product._get_price_from_supplierinfo(partner)
+                if not price:
+                    return super(ProductProduct, self).price_compute(
+                        'list_price', uom, currency, company)
+                prices = dict.fromkeys(self.ids, 0.0)
+                prices[product.id] = price
                 if not uom and self._context.get('uom'):
                     uom = self.env['product.uom'].browse(self._context['uom'])
                 if not currency and self._context.get('currency'):
                     currency = self.env['res.currency'].browse(
                         self._context['currency'])
-                prices = dict.fromkeys(self.ids, 0.0)
-                partner = self.env.context.get('partner_id', False)
-                prices[product.id] = product._get_price_from_supplierinfo(
-                    partner)
                 if uom:
                     prices[product.id] = product.uom_id._compute_price(
                         prices[product.id], uom)
                 if currency:
                     prices[product.id] = product.currency_id.compute(
                         prices[product.id], currency)
-            else:
-                res = super(ProductProduct, self).price_compute(
-                    price_type, uom, currency, company)
-                return res
-        return prices
+                return prices
+        return super(ProductProduct, self).price_compute(
+            price_type, uom, currency, company)

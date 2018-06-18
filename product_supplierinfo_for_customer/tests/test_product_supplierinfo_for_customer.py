@@ -14,6 +14,7 @@ class TestProductSupplierinfoForCustomer(common.TransactionCase):
         self.pricelist_item_model = self.env['product.pricelist.item']
         self.pricelist_model = self.env['product.pricelist']
         self.customer = self._create_customer('customer1')
+        self.unknown = self._create_customer('customer2')
         self.product = self.env.ref('product.product_product_4')
         self.supplierinfo = self._create_supplierinfo(
             'customer', self.customer, self.product)
@@ -102,3 +103,10 @@ class TestProductSupplierinfoForCustomer(common.TransactionCase):
         self.assertEqual(
             res[self.product.id], 100.0,
             "Error: Wrong price for product and customer")
+        res = self.product.with_context(
+            partner_id=self.unknown.id).price_compute(
+            'partner', self.product.uom_id, self.company.currency_id,
+            self.company)
+        self.assertEqual(
+            res[self.product.id], 750.0,
+            "Error: price does not match list price")
