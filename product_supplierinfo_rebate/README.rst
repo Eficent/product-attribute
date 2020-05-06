@@ -32,6 +32,11 @@ To use this module:
    :target: https://runbot.odoo-community.org/runbot/135/11.0
 
 
+roadmap
+=======
+
+Allow to introduce discounts or rebate desc apart from rebate prices
+
 Bug Tracker
 ===========
 

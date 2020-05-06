@@ -19,6 +19,8 @@ class ProductSupplierinfo(models.Model):
         string='Rebate Mult.',
     )
 
+    # instead of computing make something similar to sale_markup module
+
     rebate_discount = fields.Float(
         compute='_compute_rebate_percent',
         store=True,
