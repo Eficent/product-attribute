@@ -7,7 +7,6 @@ from dateutil.relativedelta import relativedelta
 from odoo import api, fields, models
 import odoo.addons.decimal_precision as dp
 
-
 class ProductSupplierInfoDuplicateWizard(models.TransientModel):
     _name = 'product.supplierinfo.duplicate.wizard'
 
@@ -17,6 +16,17 @@ class ProductSupplierInfoDuplicateWizard(models.TransientModel):
         digits=dp.get_precision('Product Price'),
         string='Variation %',
     )
+
+    @api.model
+    def default_get(self, fields):
+        fields.append('product_qty')
+        res = super(ProductSupplierInfoDuplicateWizard, self).default_get(fields)
+        if self._context.get('active_id'):
+            supplierinfo = self.env['product.supplierinfo'].browse(
+                self._context['active_id'])
+            res['date_start'] = supplierinfo.date_end
+        return res
+
 
     @api.multi
     def action_apply(self):
