@@ -6,7 +6,7 @@
     "name": "Product Supplierinfo Rebate",
     "version": "10.0.1.0.0",
     "category": "Product",
-    "website": "http://www.tecnativa.com",
+    "website": "http://www.github.com/OCA/product-attribute.git",
     "author": "ForgeFlow S.L., "
               "Odoo Community Association (OCA)",
     "license": "AGPL-3",

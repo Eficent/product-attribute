@@ -23,7 +23,7 @@ To use this module:
 #. If you are a purchase manager, and you have checked "Manage Vendor Price"
    in the technical settings of your user, go to *Purchases > Purchase >
    Supplier Pricelist* and select one or more supplier pricelist.
-#. introduce the rebate price.
+#. Introduce the rebate price.
 #. You can use the module sale_commission_rebate in order to invoice for
    rebates.
 
@@ -32,10 +32,10 @@ To use this module:
    :target: https://runbot.odoo-community.org/runbot/135/11.0
 
 
-roadmap
+Roadmap
 =======
 
-Allow to introduce discounts or rebate desc apart from rebate prices
+* Allow to introduce discounts or rebate desc apart from rebate prices
 
 Bug Tracker
 ===========
